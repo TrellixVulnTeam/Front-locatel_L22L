@@ -14,15 +14,17 @@ export class ServiceLocatelService extends ApiService{
     super(http)
   }
 
-  getAllUsuario():Observable<Usuario[]|null>{
+  getAllUsuario():Observable<any>{
     const param=new HttpParams();
     //return this.http.get("http:192.168.0.15:8080/",{
      // params:param,
       //headers:new Headers(),
       //responseType:'json'
     //});
-    return this.getWithResponse<Usuario[]>("api/demo/AllUsuario", param)
-    .pipe(map(response => response.body));
+    // return this.getWithResponse2<any>("http://192.168.0.14:8080/demo/AllUsuario", param)
+    // .pipe(map(response => response.body));
+    return this.http.get<any>("demo/AllUsuario")
+    // .pipe(map(response => response.body));
   }
 }
 interface Usuario{

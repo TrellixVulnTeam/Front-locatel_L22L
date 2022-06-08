@@ -14,7 +14,7 @@ export class AppComponent {
   }
   metodo(){
     this.serviceLocatelService.getAllUsuario()
-    .subscribe((x: any)=>{
+    .subscribe(x=>{
       if(x)
         console.log(x);
     })
