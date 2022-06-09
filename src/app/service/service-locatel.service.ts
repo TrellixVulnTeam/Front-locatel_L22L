@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { ApiService } from './api.service';
 import { HttpClient, HttpHeaders, HttpParams, HttpResponse } from '@angular/common/http';
 import { NbAuthService } from '@nebular/auth';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 @Injectable({
@@ -14,19 +14,24 @@ export class ServiceLocatelService extends ApiService{
     super(http)
   }
 
-  getAllUsuario():Observable<any>{
+  getAllUsuario():Observable<Usuario[]|null>{
     const param=new HttpParams();
-    //return this.http.get("http:192.168.0.15:8080/",{
-     // params:param,
-      //headers:new Headers(),
-      //responseType:'json'
-    //});
-    // return this.getWithResponse2<any>("http://192.168.0.14:8080/demo/AllUsuario", param)
-    // .pipe(map(response => response.body));
-    return this.http.get<any>("demo/AllUsuario")
-    // .pipe(map(response => response.body));
+    return this.http.get<Usuario[]>("demo/AllUsuario")
+    
+  }
+
+  PostLogin():Observable<String|null>{
+    return of("");
+  }
+
+  GetCuenta():Observable<String|null>{
+    return of("");
+  }
+  GetMovimiento(){
+    
   }
 }
+
 interface Usuario{
   id:number,
   bactivo:boolean,

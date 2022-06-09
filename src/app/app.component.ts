@@ -8,6 +8,8 @@ import { ServiceLocatelService } from './service/service-locatel.service';
 })
 export class AppComponent {
   title = 'front-Locatel';
+  Usuario:String="";
+  Password:String="";
   constructor(private serviceLocatelService:ServiceLocatelService){
     this.metodo();
   
@@ -18,7 +20,9 @@ export class AppComponent {
       if(x)
         console.log(x);
     })
-
+  }
+  login(){
+    console.log(this.Usuario + " "+this.Password)
   }
   
 }
